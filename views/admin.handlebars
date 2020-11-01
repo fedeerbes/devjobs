@@ -1,0 +1,33 @@
+<main class="lista-vacantes">
+  <h2>Navigation</h2>
+  <div class="botones separador">
+    <a href={{routes.EDIT_PROFILE}} class="btn btn-azul">Edit Profile</a>
+    <a href={{routes.NEW_OPEN_POSITION}} class="btn btn-verde">New Position</a>
+  </div>
+
+  <h2>Your Open Position</h2>
+  <div class="panel-administracion">
+    {{#if openPositions.length}}
+      {{#each openPositions}}
+        <div class="vacante">
+          <div class="caja">
+            <h3>{{company}}</h3>
+            <p class="puesto">{{title}}</p>
+            <p class="candidatos">Candidates: {{candidates.length}}</p>
+          </div>
+          <div class="centrar-vertical caja">
+            <a href="/candidates/{{_id}}" class="btn btn-amarillo">Candidates</a>
+          </div>
+          <div class="centrar-vertical caja">
+            <a href="/open-positions/edit/{{url}}" class="btn btn-verde">Edit</a>
+          </div>
+          <div class="centrar-vertical caja">
+            <a href="#" data-delete={{_id}} class="btn btn-rojo">Delete</a>
+          </div>
+        </div>
+      {{/each}}
+    {{else}}
+      <p>No open positions</p>
+    {{/if}}
+  </div>
+</main>

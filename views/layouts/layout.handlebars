@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="/css/app.css" rel="stylesheet">
+  <link href="/css/trix.css" rel="stylesheet">
+  <title>{{pageTitle}}</title>
+</head>
+<body>
+  <div class="nombre-sitio contenedor">
+    <h1>
+      <a href="/">devJobs</a>
+    </h1>
+
+    {{#if bar}}
+      <div class="buscador">
+        <form method="POST" action={{routes.SEARCH}}>
+          <input type="text" name="q" class="buscar">
+          <input type="submit" value="Search">
+        </form>
+      </div>
+    {{/if}}
+
+    {{#if logout}}
+      <div class="cerrar-sesion">
+        <p>Hi! {{userName}}</p>
+        {{#if userImage}}
+          <img src="/uploads/profile/{{userImage}}" alt="profile image" class="admin-perfil">
+        {{/if}}
+        <a href={{routes.ADMIN}}>Admin</a>
+        <a href={{routes.LOGOUT}}>Log out</a>
+      </div>
+    {{/if}}
+  </div>
+
+  <header class="site-header contenedor separador">
+    <h2>{{pageTitle}}</h2>
+    {{#if tagline}}
+      <p class="tagline">{{tagline}}</p>
+    {{/if}}
+    {{#if button}}
+      <a href={{routes.NEW_OPEN_POSITION}} class="btn btn-azul">Publish Job</a>
+    {{/if}}
+  </header>
+
+  <div class="contenido-principal contenedor">
+    {{#if messages}}
+      <div class="alertas">
+        {{#showAlerts messages}}
+        {{/showAlerts}}
+      </div>
+    {{/if}}
+    {{{body}}}
+  </div>
+
+  <script src="/js/trix.js"></script>
+  <script src="/dist/bundle.js"></script>
+</body>
+</html>

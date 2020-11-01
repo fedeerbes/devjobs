@@ -1,0 +1,69 @@
+<div class="contenido-superior vacante contendor">
+  <div class="caja">
+    <p class="etiqueta">Company</p>
+    <p class="nombre">{{openPositionObject.company}}</p>
+  </div>
+  <div class="caja">
+    <p class="etiqueta">Location</p>
+    <p class="nombre">{{openPositionObject.location}}</p>
+  </div>
+  <div class="caja">
+    <p class="etiqueta">Contract</p>
+    <p class="nombre">{{openPositionObject.contract}}</p>
+  </div>
+  <div class="caja">
+    <p class="etiqueta">Salary</p>
+    <p class="nombre">$ {{openPositionObject.salary}}</p>
+  </div>
+</div>
+
+<div class="vacante-contenedor contenedor">
+  <main class="contenido">
+    <h2>Job Description</h2>
+    <div class="vacante-descripcion">{{{openPositionObject.description}}}</div>
+
+    <a class="btn btn-azul editar-btn" href="/open-positions/edit/{{openPositionObject.url}}">Edit</a>
+  </main>
+  <aside class="sidebar">
+    <h2>Desired Knowledge</h2>
+    <ul class="skills">
+      {{#each openPositionObject.skills}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </aside>
+</div>
+
+<div class="contenedor datos-reclutador">
+  <div class="enviar-datos">
+    <h2>Contact Recruiter</h2>
+    <p>Complete the form, upload your CV and wait to be contacted</p>
+    <form method="POST" action="/open-positions/{{openPositionObject.url}}" class="default-form" enctype="multipart/form-data">
+      <div class="campo">
+        <label for="name">Name:</label>
+        <input type="text" name="name" placeholder="Name">
+      </div>
+      <div class="campo">
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="Email">
+      </div>
+      <div class="campo">
+        <label for="email">CV (PDF):</label>
+        <input type="file" name="cv">
+      </div>
+      <div class="campo">
+        <input type="submit" value="Send" class="btn btn-verde">
+      </div>
+    </form>
+  </div>
+  <div class="info-reclutador">
+    <h2>Recruiter Info</h2>
+    {{#if openPositionObject.author.name}}
+      <p>{{openPositionObject.author.name}}</p>
+    {{/if}}
+    {{#if openPositionObject.author.image}}
+      <img src="/uploads/profile/{{openPositionObject.author.image}}" />
+    {{/if}}
+    <p></p>
+  </div>
+</div>

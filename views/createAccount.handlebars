@@ -1,0 +1,26 @@
+<main class="contenedor">
+  <form action={{routes.CREATE_ACCOUNT}} method="POST" class="default-form">
+    <div class="campo">
+      <label for="name">Name</label>
+      <input type="text" name="name" placeholder="Name">
+    </div>
+    <div class="campo">
+      <label for="email">Email</label>
+      <input type="email" name="email" placeholder="Email">
+    </div>
+    <div class="campo">
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="Password">
+    </div>
+    <div class="campo">
+      <label for="confirm">Confirm Password</label>
+      <input type="password" name="confirm" placeholder="Confirm Password">
+    </div>
+    <div class="campo acciones">
+      <a href={{routes.LOGIN}}>Login instead</a>
+    </div>
+    <div class="campo">
+      <input type="submit" value="Create Account" class="btn btn-azul">
+    </div>
+  </form>
+</main>

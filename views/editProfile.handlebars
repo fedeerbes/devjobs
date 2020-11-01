@@ -1,0 +1,27 @@
+<main class="contendor">
+  <form action={{routes.EDIT_PROFILE}} method="POST" class="default-form" enctype="multipart/form-data">
+    <p>{{user}}</p>
+    <div class="campo">
+      <label for="name">Name</label>
+      <input type="text" name="name" placeholder="Name" value={{user.name}} >
+    </div>
+    <div class="campo">
+      <label for="email">Email</label>
+      <input type="email" name="email" placeholder="Email" value={{user.email}} >
+    </div>
+    <div class="campo">
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="Password">
+    </div>
+    <div class="campo">
+      <label for="image">Image</label>
+      <input type="file" name="image" accept="image/png, image/jpeg">
+      {{#if user.image}}
+        <img src="uploads/profile/{{user.image}}" alt="profile image" class="admin-perfil">
+      {{/if}}
+    </div>
+    <div class="campo">
+      <input type="submit" class="btn btn-azul" value="Save">
+    </div>
+  </form>
+</main>

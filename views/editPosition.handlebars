@@ -1,0 +1,52 @@
+<main class="contenedor">
+  <form action='/open-positions/edit/{{openPositionObject.url}}' method="POST" class="default-form">
+    <h3>General information</h3>
+
+    <div class="campo">
+      <label for="title">Title</label>
+      <input type="text" name="title" placeholder="Ex: React Developer" value={{openPositionObject.title}}>
+    </div>
+    <div class="campo">
+      <label for="company">Company</label>
+      <input type="text" name="company" placeholder="Ex: Facebook" value={{openPositionObject.company}}>
+    </div>
+    <div class="campo">
+      <label for="location">Location</label>
+      <input type="text" name="location" placeholder="Ex: Remote" value={{openPositionObject.location}}>
+    </div>
+    <div class="campo">
+      <label for="salary">Salary (USD)</label>
+      <input type="text" name="salary" placeholder="Ex: $500 USD" value={{openPositionObject.salary}}>
+    </div>
+    <div class="campo">
+      <label>Contract</label>
+      <select name="contract">
+        {{#contractType openPositionObject.contract}}
+          <option value="" disabled>-- Select --</option>
+          <option value="freelance">Freelance</option>
+          <option value="full-time">Full Time</option>
+          <option value="part-time">Part Time</option>
+          <option value="for-project">For Project</option>
+        {{/contractType}}
+      </select>
+    </div>
+    
+    <h3>Position Description</h3>
+    <div class="campo descripcion">
+      <label>Description</label>
+      <input type="hidden" id="x" name="description" value={{openPositionObject.description}}>
+      <trix-editor input="x"></trix-editor>
+    </div>
+
+    <h3>Skills</h3>
+    <ul class="lista-conocimientos">
+      {{#selectSkill openPositionObject.skills}}
+      {{/selectSkill}}
+    </ul>
+
+    <div class="campo centrar-horizontal">
+      <input type="hidden" id="skills" name="skills">
+      <input type="submit" value="Save" class="btn btn-azul">
+    </div>
+  </form>
+</main>

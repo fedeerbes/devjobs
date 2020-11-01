@@ -1,0 +1,19 @@
+<main class="contenedor">
+  <form action={{routes.LOGIN}} method="POST" class="default-form">
+    <div class="campo">
+      <label for="email">Email</label>
+      <input type="text" name="email" placeholder="Email" required>
+    </div>
+    <div class="campo">
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="Password" required>
+    </div>
+    <div class="campo acciones">
+      <a href={{routes.CREATE_ACCOUNT}}>Sigin</a>
+      <a href={{routes.RESET_PASSWORD}}>Forgot Password?</a>
+    </div>
+    <div class="campo">
+      <input type="submit" value="Login" class="btn btn-azul">
+    </div>
+  </form>
+</main>
