@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const slug = require("slug");
-const shortId = require("shortId");
+const shortId = require("shortid");
 mongoose.Promise = global.Promise;
 
 const openPositionSchema = new mongoose.Schema({
